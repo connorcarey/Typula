@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Context Sensitive - 20XX - 06 Often.wav-c43dcd487614aa2e86962aa96be2ff32.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Context Sensitive - 20XX - 06 Often.wav"
+dest_files=[ "res://.import/Context Sensitive - 20XX - 06 Often.wav-c43dcd487614aa2e86962aa96be2ff32.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

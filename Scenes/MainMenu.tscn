@@ -1,0 +1,162 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Assets/Colors/Main.png" type="Texture" id=1]
+[ext_resource path="res://Themes/Fonts/RIKY2vamp.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Themes/Fonts/times.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scenes/MainMenu.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Colors/CurrentLine.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 256
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 64
+font_data = ExtResource( 3 )
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+stretch_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 586.0
+margin_top = 262.0
+margin_right = 1333.0
+margin_bottom = 817.0
+custom_constants/separation = 10
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 747.0
+margin_bottom = 295.0
+custom_colors/font_color = Color( 1, 0.333333, 0.333333, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 10
+custom_constants/shadow_offset_y = 10
+custom_fonts/font = SubResource( 1 )
+text = "Typula"
+
+[node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 305.0
+margin_right = 747.0
+margin_bottom = 347.0
+custom_fonts/font = SubResource( 2 )
+text = "Play"
+icon_align = 1
+
+[node name="Multiplayer" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 357.0
+margin_right = 747.0
+margin_bottom = 399.0
+custom_fonts/font = SubResource( 8 )
+disabled = true
+text = "Multiplayer"
+
+[node name="LeaderboardButton" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 409.0
+margin_right = 747.0
+margin_bottom = 451.0
+custom_fonts/font = SubResource( 3 )
+disabled = true
+text = "Leaderboards"
+
+[node name="HTPButton" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 461.0
+margin_right = 747.0
+margin_bottom = 503.0
+custom_fonts/font = SubResource( 4 )
+text = "How To Play"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 513.0
+margin_right = 747.0
+margin_bottom = 555.0
+custom_fonts/font = SubResource( 5 )
+text = "Quit"
+
+[node name="Information" type="PanelContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -289.5
+margin_top = -366.5
+margin_right = 289.5
+margin_bottom = 366.5
+
+[node name="TextureRect" type="TextureRect" parent="Information"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 572.0
+margin_bottom = 726.0
+texture = ExtResource( 5 )
+stretch_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Information"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 572.0
+margin_bottom = 726.0
+
+[node name="Label" type="Label" parent="Information/VBoxContainer"]
+margin_right = 565.0
+margin_bottom = 582.0
+custom_fonts/font = SubResource( 6 )
+text = "Welcome Player, the default play button is set for single player mode, where the objective is to type words as quickly and accurately as possible. Once you click 'play', you will be taken to level 1 and can start typing immediately. Your goal is to type as many words as you can without letting a bat reach the left side of the screen, as doing so will result in a loss. Each level has a 60-second timer. Upon completion of a level, you will be prompted to proceed to the next level or return to the main menu. If you lose, you will be given the option to retry the level or return to the main menu.
+"
+autowrap = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Information/VBoxContainer"]
+margin_top = 586.0
+margin_right = 565.0
+margin_bottom = 664.0
+alignment = 1
+
+[node name="BackButton" type="Button" parent="Information/VBoxContainer/HBoxContainer"]
+margin_left = 211.0
+margin_right = 354.0
+margin_bottom = 78.0
+custom_fonts/font = SubResource( 7 )
+text = "Back"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Multiplayer" to="." method="_on_Multiplayer_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/LeaderboardButton" to="." method="_on_LeaderboardButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HTPButton" to="." method="_on_HTPButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="Information/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_Button_pressed"]
